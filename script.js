@@ -1,3 +1,8 @@
+const quoteContainer = document.getElementById("quote-container");
+const quoteText = document.getElementById("quote");
+const author = document.getElementById("author");
+const twitter = document.getElementById("twitter");
+
 let apiQuote = [];
 
 const newQuote = () => {
