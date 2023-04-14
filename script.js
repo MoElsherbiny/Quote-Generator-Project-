@@ -36,8 +36,8 @@ const tweetQuote = () => {
   window.open(twitterUrl, "_blank");
 };
 const linkedinQuote = () => {
-  const linkedinPost = `https://www.linkedin.com/shareArticle?text=${quoteText.textContent} - ${authorText.textContent}`;
-  window.open(linkedin, "_blank");
+  const linkedinPost = `https://www.linkedin.com/shareArticle?url={https://moelsherbiny.github.io/Quote-Generator-Project-/}&title=t=${quoteText.textContent} - ${authorText.textContent}`;
+  window.open(linkedinPost, "_blank");
 };
 newQuote.addEventListener("click", newQuotes);
 twitter.addEventListener("click", tweetQuote);
