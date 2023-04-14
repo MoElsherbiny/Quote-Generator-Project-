@@ -60,13 +60,8 @@ button {
     padding: 10px;
     box-shadow: 0 0.3rem 8px 4px rgba(121,121,121,0.65);
 }
-.linkedin-button {
-    margin-right: auto;
-    margin-left: 4px;
-}
-.linkedin-button:hover{
-    color: #1da1f2;
-}
+
+
 .twitter-button:hover{
     color: #1da1f2;
 }
