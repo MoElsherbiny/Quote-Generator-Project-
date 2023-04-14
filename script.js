@@ -36,7 +36,11 @@ const tweetQuote = () => {
   window.open(twitterUrl, "_blank");
 };
 const linkedinQuote = () => {
-  const linkedinPost = `https://www.linkedin.com/shareArticle?url={https://moelsherbiny.github.io/Quote-Generator-Project-/}&title=t=${quoteText.textContent} - ${authorText.textContent}`;
+  const linkedinPost = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+    "https://moelsherbiny.github.io/Quote-Generator-Project-/"
+  )}&title=${encodeURIComponent(
+    quoteText.textContent + " - " + authorText.textContent
+  )}`;
   window.open(linkedinPost, "_blank");
 };
 newQuote.addEventListener("click", newQuotes);
