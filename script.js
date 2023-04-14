@@ -1,13 +1,25 @@
 const quoteContainer = document.getElementById("quote-container");
 const quoteText = document.getElementById("quote");
-const author = document.getElementById("author");
+const authorText = document.getElementById("author");
 const twitter = document.getElementById("twitter");
-
+const newQuote = document.getElementById("new-quote");
+const linkedin = document.getElementById("linkedin");
 let apiQuote = [];
 
-const newQuote = () => {
+const newQuotes = () => {
   const quote = apiQuote[Math.floor(Math.random() * apiQuote.length)];
-  console.log(quote);
+  if (!quote.author) {
+    authorText.textContent = "Unknown Author";
+  } else {
+    authorText.textContent = quote.author;
+  }
+  if (quote.text.length > 120) {
+    quoteText.classList.add("long-quote");
+  } else {
+    quoteText.classList.remove("long-quote");
+  }
+
+  quoteText.textContent = quote.text;
 };
 
 const getQuotes = async () => {
@@ -15,7 +27,20 @@ const getQuotes = async () => {
   try {
     const response = await fetch(apiUrl);
     apiQuote = await response.json();
-    newQuote();
+    newQuotes();
   } catch (error) {}
 };
+
+const tweetQuote = () => {
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
+  window.open(twitterUrl, "_blank");
+};
+const linkedinQuote = () => {
+  const linkedinPost = `https://www.linkedin.com/shareArticle?text=${quoteText.textContent} - ${authorText.textContent}`;
+  window.open(linkedin, "_blank");
+};
+newQuote.addEventListener("click", newQuotes);
+twitter.addEventListener("click", tweetQuote);
+linkedin.addEventListener("click", linkedinQuote);
+
 getQuotes();
